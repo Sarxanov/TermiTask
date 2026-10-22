@@ -5,7 +5,7 @@ import { ShortcutHelp } from './components/ShortcutHelp'
 import { StatsPanel } from './components/StatsPanel'
 import { TaskForm } from './components/TaskForm'
 import { TaskList } from './components/TaskList'
-import type { Task } from './types/task'
+import type { Task, TaskSortOption } from './types/task'
 import { clearDemoData, loadTasks, saveTasks } from './utils/storage'
 import { applyTaskFilters, getTaskStats } from './utils/taskUtils'
 
@@ -29,14 +29,22 @@ const createTask = (input: {
 }
 
 function App() {
+  type FiltersState = {
+    query: string
+    status: 'all' | 'pending' | 'completed' | 'overdue'
+    priority: 'all' | Task['priority']
+    category: string
+    sort: TaskSortOption
+  }
+
   const [tasks, setTasks] = useState<Task[]>([])
   const [message, setMessage] = useState<string | null>(null)
-  const [filters, setFilters] = useState({
+  const [filters, setFilters] = useState<FiltersState>({
     query: '',
-    status: 'all' as const,
-    priority: 'all' as const,
+    status: 'all',
+    priority: 'all',
     category: 'all',
-    sort: 'created-desc' as const,
+    sort: 'created-desc',
   })
 
   const titleInputRef = useRef<HTMLInputElement>(null)

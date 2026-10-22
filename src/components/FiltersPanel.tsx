@@ -7,7 +7,7 @@ interface FiltersPanelProps {
   category: string
   sort: TaskSortOption
   categories: string[]
-  onChange: (patch: Partial<FiltersPanelProps>) => void
+  onChange: (patch: Partial<Pick<FiltersPanelProps, 'query' | 'status' | 'priority' | 'category' | 'sort'>>) => void
   searchInputRef: React.RefObject<HTMLInputElement | null>
 }
 
