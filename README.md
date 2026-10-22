@@ -33,7 +33,7 @@ TermiTask is a lightweight task management application built with React, TypeScr
 - **Local persistence** — tasks are saved in browser `localStorage`.
 ## 🖥️ Preview
 
-![TermiTask dashboard](screenshots/termitask-dashboard.png)
+![TermiTask dashboard](/termitask-dashboard.png)
 
 
 ## 🛠️ Tech Stack
